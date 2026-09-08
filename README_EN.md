@@ -18,6 +18,7 @@
 - **One-click multi-platform adaptation for technical writeups**: once a technical long-form draft is done, it can be rewritten to fit a long-form blog platform and a short-form social platform's conventions — facts and conclusions stay fixed, only phrasing and length adapt. Source material isn't limited to a code repo; it also covers experiment data, comments/feedback from links, and the author's own verbal explanation.
 - **Image suggestions (text only, no image generation)**: for short-form posts, personal-network updates, and technical writeups, it can suggest what to pair with an image — an AI image-generation prompt, which screenshot to take, or what an infographic should contain. It never generates or picks the actual image.
 - **Fiction**: helps turn a not-yet-developed idea into a premise, setting, and characters, then an outline, then chapters. This is the one mode not bound by the fact-boundary rules — plot and characters are meant to be invented here.
+- **Interactive HTML**: a web version of a technical writeup, a runnable demo embedded in a README, or a standalone landing/intro page — delivered as a single self-contained `.html` file (real click-to-expand, tabs, hover charts where useful), no build tooling required, double-click to open. It doesn't deploy or publish anything on its own.
 
 ## Requires Obsidian
 
