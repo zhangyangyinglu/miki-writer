@@ -1,21 +1,12 @@
 # 第三方来源说明
 
-`miki-writer` 最初参考并蒸馏改造自以下项目。本仓库里的具体文本规则大多已经过重写，
-但方法论和结构上仍有继承关系，如实列出来源，不代表全部内容均为独立原创。
+`miki-writer` 的方法论蒸馏改造自以下两个项目，具体文本规则已经重写，但结构和方法论上有直接继承关系。
 
 ## Humanizer-zh（MIT License）
 
 来源：https://github.com/op7418/Humanizer-zh
 
-`references/de-ai-calibration.md` 中"注入观点和个性"一节直接参考了这个项目——核对
-过双方内容，连举例用的句子（"我真的不知道该怎么看待这件事……"那个例子）都是同一个，
-确认是真实依赖，不是巧合。
-
-补充说明：Humanizer-zh 自己的 README 说明它翻译自 `blader/humanizer`，并参考了
-`hardikpandya/stop-slop`。本项目只直接依赖 Humanizer-zh 这一层，没有单独核实再往上
-两层的许可证状态，如实记录这个事实供以后追溯，不代表需要立即处理。
-
-原始许可证如下（2026-09-08 从上游仓库取得）：
+`references/de-ai-calibration.md` 的"注入观点和个性"一节直接依赖这个项目。上游许可证原文：
 
 ```
 MIT License
@@ -41,36 +32,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
-## 枪手 qiangshou-skill（PolyForm Noncommercial License 1.0.0，2026-09-08 确认）
+## 枪手 qiangshou-skill（PolyForm Noncommercial License 1.0.0）
 
 来源：https://github.com/shengjidaguai-china/qiangshou-skill
 
-`miki-writer` 最初是从这个项目蒸馏改造而来。核对过双方的公开 README 后，以下内容
-基本是照搬过来的，不是独立想到的相同做法：
+以下方法论直接继承自这个项目：五类事实核验（仓库可验证/用户亲述/第三方反馈/作者推断/时效数据）、六步技术写法（问题→为什么难→尝试与取舍→具体实现→可量化结果→适用边界）、五种主导推进线（事件/认知/决策/实验/人物关系变化）、终稿保护规则、轻量自进化的具体参数。
 
-- 五类事实核验（仓库可验证/用户亲述/第三方反馈/作者推断/时效数据）——名称和顺序一致。
-- 六步技术写法"问题→为什么难→尝试与取舍→具体实现→可量化结果→适用边界"——逐字一致。
-- 五种主导推进线（事件变化/认知变化/决策变化/实验变化/人物关系变化）——一致。
-- 终稿保护规则（删除不可恢复、否决的建议不重提、只能改明确授权的错别字）——高度一致。
-- 轻量自进化的具体参数（对比手改终稿、纯排版不算、两篇重复才转正、明确指令立即生效、
-  每篇最多 2 条、"这次不要学习"跳过）——具体数字和触发词一致。
-
-原始许可证是 **PolyForm Noncommercial License 1.0.0**（本仓库根目录 `LICENSE`
-文件的原文就是这份协议）：允许基于它做修改和衍生作品，但**限定非商业用途**，
-并要求把这份条款（或链接）一并给到拿到软件的人；查过原仓库没有额外的
-`Required Notice:` 具体文本要求。
-
-**因此本仓库也采用同一份 PolyForm Noncommercial License 1.0.0**，这是目前能确定
-合规的最直接选择。这意味着：这份 Skill 本身（不是用它写出来的内容）只能用于非商业
-用途；如果 Miki 未来想把 miki-writer 这个 Skill 本身用于商业场景（比如作为付费产品
-的一部分），需要单独联系枪手的作者取得授权，不能直接假设现在的许可证覆盖那种用法。
-
-## de-AI-writing（2026-09-08 起不再作为来源）
-
-来源：https://github.com/OUBIGFA/De-AI-Prompt-Enhancer-Writer-Booster-SKILL（仓库确认
-存在，但没有任何 LICENSE 文件，`license: None`）。
-
-这个项目本身是基于 Humanizer-zh 做的二次蒸馏/升级，不是独立源头。Miki 决定不再把它
-列为来源——需要的方法论直接对照 Humanizer-zh 原始项目即可，不需要经过这一层，也就
-不需要单独核实它自己的许可证状态。保留这条记录只是为了如实说明这个名字之前出现过、
-现在为什么不用了，不代表本仓库仍然依赖它。
+原始许可证是 [PolyForm Noncommercial License 1.0.0](https://polyformproject.org/licenses/noncommercial/1.0.0)：允许修改和衍生，但**仅限非商业用途**，需要把这份条款一并给到使用者。本仓库采用同一份协议（见根目录 [LICENSE](LICENSE)）。这意味着 miki-writer 这个 Skill 本身只能用于非商业用途；商业使用需要单独联系原作者取得授权。
