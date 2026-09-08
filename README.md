@@ -14,6 +14,7 @@
 | 口播稿 / 视频脚本 / 提词器稿 | 台词、画面、节奏对照表 | `format-specs.md` |
 | GitHub README | 生成或优化项目 README（中英双语） | `format-specs.md` |
 | 审稿 / 去 AI 味 | 按你的措辞判断只提建议，还是直接改稿 | `de-ai-calibration.md` |
+| 重写旧稿 | 保留可验证事实，指出失速点后重组，不是同义改写 | `facts-and-writing.md` |
 | 小说（虚构创作） | 唯一不受事实边界约束的模式，情节人物可以虚构 | `fiction-writing.md` |
 | 交互式网页（HTML） | 单文件、真交互（点击展开/tab/图表）的网页 | `interactive-html.md` |
 
