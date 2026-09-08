@@ -12,7 +12,7 @@
 | 朋友圈 / 社交动态 | 私域场景的短文案，语气更随意 | `format-specs.md` |
 | 公众号长文 / 技术长文 | 事实核验 + 六步技术写法，可一键改写适配多平台 | `facts-and-writing.md`、`format-specs.md` |
 | 口播稿 / 视频脚本 / 提词器稿 | 台词、画面、节奏对照表 | `format-specs.md` |
-| GitHub README | 生成或优化项目 README（中英双语） | `format-specs.md` |
+| GitHub README | 生成或优化项目 README（默认只出中文，其他语言按要求） | `format-specs.md` |
 | 审稿 / 去 AI 味 | 按你的措辞判断只提建议，还是直接改稿 | `de-ai-calibration.md` |
 | 重写旧稿 | 保留可验证事实，指出失速点后重组，不是同义改写 | `facts-and-writing.md` |
 | 小说（虚构创作） | 唯一不受事实边界约束的模式，情节人物可以虚构 | `fiction-writing.md` |
@@ -40,16 +40,17 @@
 
 ## 快速开始
 
-**第一步：装 Obsidian** —— 打开 [obsidian.md](https://obsidian.md)，下载对应系统的安装包，创建一个新的 Vault（存笔记的文件夹）。界面可能随版本变化，以官方说明为准。
+**第一步（只有会用到"主动检索素材"的模式才需要）：装 Obsidian** —— 打开 [obsidian.md](https://obsidian.md)，下载对应系统的安装包，创建一个新的 Vault（存笔记的文件夹）。界面可能随版本变化，以官方说明为准。审稿、去 AI 味、README 这些默认不检索 Vault 的模式，没有 Obsidian 也能用。
 
-**第二步：把这个 Skill 接到你的 AI 工具上**
+**第二步：把这个 Skill 接到你的 AI 工具上**——不同工具的接入方式不一样，装好 Skill 本身不代表 AI 工具自动能访问你的 Obsidian Vault，这是两件独立的事：
 
-- Claude（网页版/桌面版）：在设置里找 Skills / Capabilities 入口，按引导添加这个文件夹。
-- Claude Code：把文件夹放进项目的 `.claude/skills/`（或用户级 skills 目录），自动识别。
-- Codex 或其他支持 Skill 机制的工具：按该工具自己的说明接入。
-- 在 Obsidian 里直接用：装一个能把 Obsidian 和 AI 工具连起来的社区插件，配置好 API access。
+- **Claude 网页版/桌面版**：把整个 `miki-writer` 文件夹打包成一个 `.zip`（文件夹本身，不是文件夹里的内容单独打包），在设置的 Skills / Capabilities 入口里上传这个 zip。要用到 Vault 检索的模式，还需要额外让 Claude 能访问你的 Vault 所在目录/文件——具体方式随 Claude 版本变化，以官方最新说明为准。
+- **Claude Code**：把文件夹放进项目的 `.claude/skills/`（或用户级 skills 目录），自动识别；Claude Code 本身能读写本地文件，只要 Vault 路径在它可访问的范围内就行。
+- **Codex 或其他支持 Skill 机制、能读写本地文件的工具**：按该工具自己的说明接入，原理和 Claude Code 一样。
 
-**第三步：开始用** —— 直接用自然语言说你要写什么，比如"帮我把这个项目写成一篇小红书笔记"；也可以点名"用 miki-writer 帮我写……"，确保触发的是这个 Skill。
+**第三步：（可选）填一份自己的身份/署名配置**——`references/` 下 `ip-signature.example.md`、`author-voice-signals.json` 是空模板；需要固定的视频开头/结尾话术、避免词清单时，复制 `ip-signature.example.md` 为同目录下的 `ip-signature.md`（已被 `.gitignore` 排除，填真实内容不会被意外提交）。不填也能用，Skill 找不到这个文件时会直接问你。
+
+**第四步：开始用** —— 直接用自然语言说你要写什么，比如"帮我把这个项目写成一篇小红书笔记"；也可以点名"用 miki-writer 帮我写……"，确保触发的是这个 Skill。
 
 ## 它不会做的事
 
@@ -60,7 +61,9 @@
 
 ## 关于隐私和可移植性
 
-`SKILL.md` 里出现的路径、文件名都是使用者自己的个人配置，不是写死的——分享给别人时，对方按自己的 Vault 结构调整即可，不会暴露原使用者的笔记内容或目录组织方式。`references/ip-signature.md`（署名话术）和 `references/author-voice.md`（文风记忆）里的内容是原使用者自己的，拿去用时换成你自己的。
+`SKILL.md` 里出现的路径、文件名都是使用者自己的个人配置，不是写死的——分享给别人时，对方按自己的 Vault 结构调整即可，不会暴露原使用者的笔记内容或目录组织方式。`SKILL.md` 和 `references/` 里的规则文件用"用户"泛指使用者，不写死具体名字。
+
+会包含真实个人内容的三个文件——署名话术（`references/ip-signature.md`）、文风候选信号（`references/author-voice-signals.local.json`）、已晋升的文风规则（`references/author-voice-learned.local.md`）——都已经在 `.gitignore` 里排除，不会被提交进这个仓库；仓库里能看到的对应文件是不含真实内容的模板（`.example.md` / 保持为空的 `.json`）。你自己用的时候，按 `references/author-voice.md` 顶部的说明把真实内容写进本地文件即可；文风学习默认自动运行（你反复用它写稿、改稿的过程本身就是持续调教文风的过程），不需要每次单独开口，只是积累下来的真实内容不会被写进公开模板。
 
 ## 许可证
 
@@ -70,17 +73,21 @@
 
 ```
 miki-writer/
-├── SKILL.md                主流程与任务路由（入口）
+├── SKILL.md                    主流程与任务路由（入口）
 ├── LICENSE
 ├── THIRD_PARTY_NOTICES.md
-└── references/             SKILL.md 按任务模式调用的规则细节
+├── .gitignore                  排除下面标了"本地"的真实内容文件
+└── references/                 SKILL.md 按任务模式调用的规则细节
     ├── facts-and-writing.md
     ├── format-specs.md
     ├── de-ai-calibration.md
     ├── fiction-writing.md
     ├── interactive-html.md
-    ├── author-voice.md
-    ├── author-voice-signals.json
-    ├── ip-signature.md
+    ├── author-voice.md         方法说明（模板，不含真实内容）
+    ├── author-voice-signals.json        候选信号模板（保持为空）
+    ├── author-voice-signals.local.json  真实候选信号（本地，不提交）
+    ├── author-voice-learned.local.md    真实已晋升规则（本地，不提交）
+    ├── ip-signature.example.md 署名话术模板
+    ├── ip-signature.md         真实署名话术（本地，不提交）
     └── test-scenarios.md
 ```
