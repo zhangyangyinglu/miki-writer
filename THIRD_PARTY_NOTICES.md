@@ -7,7 +7,14 @@
 
 来源：https://github.com/op7418/Humanizer-zh
 
-`references/de-ai-calibration.md` 中"注入观点和个性"一节的方法论参考了这个项目。
+`references/de-ai-calibration.md` 中"注入观点和个性"一节直接参考了这个项目——核对
+过双方内容，连举例用的句子（"我真的不知道该怎么看待这件事……"那个例子）都是同一个，
+确认是真实依赖，不是巧合。
+
+补充说明：Humanizer-zh 自己的 README 说明它翻译自 `blader/humanizer`，并参考了
+`hardikpandya/stop-slop`。本项目只直接依赖 Humanizer-zh 这一层，没有单独核实再往上
+两层的许可证状态，如实记录这个事实供以后追溯，不代表需要立即处理。
+
 原始许可证如下（2026-09-08 从上游仓库取得）：
 
 ```
@@ -58,16 +65,12 @@ SOFTWARE.
 用途；如果 Miki 未来想把 miki-writer 这个 Skill 本身用于商业场景（比如作为付费产品
 的一部分），需要单独联系枪手的作者取得授权，不能直接假设现在的许可证覆盖那种用法。
 
-## de-AI-writing（许可证状态：保持疑问）
+## de-AI-writing（2026-09-08 起不再作为来源）
 
-来源：https://github.com/OUBIGFA/De-AI-Prompt-Enhancer-Writer-Booster-SKILL（确认存在，
-public 仓库）。
+来源：https://github.com/OUBIGFA/De-AI-Prompt-Enhancer-Writer-Booster-SKILL（仓库确认
+存在，但没有任何 LICENSE 文件，`license: None`）。
 
-这个仓库**没有任何 LICENSE 文件**（GitHub API 确认 `license: None`），按 GitHub
-默认规则等于"保留所有权利"。它自己是基于 Humanizer-zh（MIT）升级的，但 OUBIGFA
-自己新增的内容没有单独给许可证。`references/de-ai-calibration.md` 的两阶段检测方法
-和它的方法论有相似之处（分层检测、去模板化），但没有找到六步写法那种逐字一致的
-证据，重合程度不如 qiangshou 确定。
-
-**状态：Miki 明确要求保持疑问，不下结论**——不认定"确实蒸馏了"，也不认定"完全无关"，
-这条留待她自己判断或联系原作者核实。
+这个项目本身是基于 Humanizer-zh 做的二次蒸馏/升级，不是独立源头。Miki 决定不再把它
+列为来源——需要的方法论直接对照 Humanizer-zh 原始项目即可，不需要经过这一层，也就
+不需要单独核实它自己的许可证状态。保留这条记录只是为了如实说明这个名字之前出现过、
+现在为什么不用了，不代表本仓库仍然依赖它。
