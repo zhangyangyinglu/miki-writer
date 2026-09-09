@@ -1,5 +1,7 @@
 # Miki Writer
 
+![Miki Writer 总览](assets/miki-writer-framework-card.png)
+
 这是一套给 AI 写作工具用的 **Skill**——一份指令文件，不是独立软件或 App。把它接入 Claude、Claude Code、Codex 这类能读写本地文件的 AI 工具后，AI 会按这里定义的规则，把你真实的项目、经历和观点写成不同格式的稿子：动笔前先自己找素材，写完主动要反馈，反复修改的过程本身就是它学你文风的过程，不用每次重新跟 AI 解释"我的风格是什么"。
 
 **入口文件是 `SKILL.md`**：它先判断你要写哪种东西，再去读对应的 `references/` 文件拿具体规则。`references/` 里的文件都不是独立使用的，是 `SKILL.md` 按任务模式按需调用的细节说明。
